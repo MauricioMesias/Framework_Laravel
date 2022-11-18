@@ -40,3 +40,6 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('empresas', EmpresaController::class);
     Route::resource('productos', ProductoController::class);
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
