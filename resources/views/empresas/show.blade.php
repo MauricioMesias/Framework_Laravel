@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="card mt-3">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5>Ver Empresas</h5>
+        <div class="card-header d-inline-flex">
+            <h5>Formulario para ver Empresas id:{{$empresa->idEmpresa}}</h5>
             <a href="{{ route('empresas.index') }}" class="btn btn-primary ml-auto">
                 <i class="fas fa-arrow-left"></i>
                 Volver
