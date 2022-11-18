@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="card mt-3">
-        <div class="card-header d-flex justify-content-between">
+        <div class="card-header d-inline-flex">
             <h5>Empresas</h5>
             <a href="{{ route('empresas.create') }}" class="btn btn-primary ml-auto">
                 <i class="fas fa-plus"></i>
