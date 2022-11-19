@@ -45,15 +45,10 @@
                 @include('layouts.sidehead')
                 <main class="py-4">
 
-
-
-                    
                     @include('components.flash_alerts')
                     @yield('content')
                 </main>
             </div>
     </div>
 </body>
-
-
 </html>
