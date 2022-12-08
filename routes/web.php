@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\nuevavistaController;
-use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ClienteController;
+
+
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -37,8 +40,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware'=>['auth']], function(){
-    Route::resource('empresas', EmpresaController::class);
+    Route::resource('proveedores', ProveedorController::class);
     Route::resource('productos', ProductoController::class);
+    Route::resource('clientes', ClienteController::class);
 });
 Auth::routes();
 

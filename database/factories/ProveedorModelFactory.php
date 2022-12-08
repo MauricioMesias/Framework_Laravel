@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ClienteModelFactory extends Factory
+class ProveedorModelFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,13 +14,11 @@ class ClienteModelFactory extends Factory
     public function definition()
     {
         return [
-            'nombre'            =>$this->faker->name,
-            'apellidoPaterno'   =>$this->faker->firstName,
-            'apellidoMaterno'   =>$this->faker->lastName,
+            'razonSocial'       =>$this->faker->word,
+            'nombreCompleto'    =>$this->faker->name,
+            'direccion'         =>$this->faker->address,
             'telefono'          =>$this->faker->phoneNumber,
             'correo'            =>$this->faker->unique()->safeEmail(),
-            'direccion'         =>$this->faker->address,
-            'idProducto'        =>$this->faker->numberBetween(1,30),
         ];
     }
 }

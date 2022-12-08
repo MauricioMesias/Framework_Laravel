@@ -14,12 +14,12 @@ class ProductoModelFactory extends Factory
     public function definition()
     {
         return [
-            'nombre'      =>$this->faker->name,
-            'descripcion' =>$this->faker->text,
-            'precio'      =>$this->faker->randomDigit(2,2),
-            'expiracion'  =>$this->faker->dateTimeThisCentury->format('Y-m-d'),
-            'stock'       =>$this->faker->numberBetween(100,200),
-            'idEmpresa'   =>$this->faker->numberBetween(1,30),
+            'nombre'       =>$this->faker->name,
+            'descripcion'  =>$this->faker->text, 
+            'precio'       =>$this->faker->randomDigit(3,3), 
+            'expiracion'   =>$this->faker->dateTimeThisCentury->format('Y-m-d'), 
+            'stock'        =>$this->faker->numberBetween(100,300), 
+            'idProveedor'  =>$this->faker->numberBetween(1,30), 
         ];
     }
 }

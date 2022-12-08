@@ -9,12 +9,12 @@ class ClienteModel extends Model
 {
     use HasFactory;
         protected $primaryKey = 'idCliente';
-        protected $foreignKey = 'idProducto';
-        protected $table = 'clientes';
+        protected $foreingKey = 'idProducto';
+        protected $table = 'clientes'; 
         protected $fillable = [
             'nombre',
-            'aPaterno',
-            'aMaterno',
+            'apellidoPaterno',
+            'apellidoMaterno',
             'telefono',
             'correo',
             'direccion',
@@ -22,5 +22,6 @@ class ClienteModel extends Model
         ];
     public function producto(){
         return $this->belongsTo('App\Models\ProductoModel', 'idProducto', 'idProducto');
-    }    
+        //FUNCION PARA RELACIONAR LAS TABLAS
+    }
 }

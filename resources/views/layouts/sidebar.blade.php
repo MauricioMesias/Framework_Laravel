@@ -13,10 +13,10 @@
                     Home
                 </a>            
             </li>
-            <li class="{{'empresas'==Request::is('empresas*')?'active':''}}">
-                <a href="{{route('empresas.index')}}">
+            <li class="{{'proveedores'==Request::is('proveedores*')?'active':''}}">
+                <a href="{{route('proveedores.index')}}">
                     <i class="fas fa-handshake"></i>
-                    Empresas
+                    Proveedores 
                 </a>
             </li>
             <li class="{{'productos'==Request::is('productos*')?'active':''}}">
@@ -25,8 +25,8 @@
                     Productos
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="{{'clientes'==Request::is('clientes*')?'active':''}}">
+                <a href="{{route('clientes.index')}}">
                     <i class="fas fa-users"></i>
                     Clientes
                 </a>

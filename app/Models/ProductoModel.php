@@ -8,19 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class ProductoModel extends Model
 {
     use HasFactory;
-    protected $primarykey = 'idProducto';
-    protected $foreignKey = 'idEmpresa';
+
+    protected $primaryKey = 'idProducto';
+    protected $foreignKey = 'idProveedor';
     protected $table = 'productos';
     protected $fillable = [
-            'nombre',
-            'descripcion',
-            'precio',
-            'expiracion',
-            'stock',
-            'idEmpresa',
+        'nombre',
+        'descripcion',
+        'precio',
+        'expiracion',
+        'stock',
+        'idProveedor',
     ];
 
-    public function empresa(){
-        return $this->belognsTo('App\Models\EmpresaModel', 'idEmpresa', 'idEmpresa');
+    public function proveedor(){
+        return $this->belongsTo('App\Models\ProveedorModel', 'idProveedor', 'idProveedor');
+        //FUNCION PARA RELACIONAR LAS TABLAS
     }
 }

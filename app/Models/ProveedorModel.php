@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EmpresaModel extends Model
+class ProveedorModel extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'idEmpresa';
-    protected $table = 'empresas';
+    protected $primaryKey = 'idProveedor';    
+    protected $table = 'proveedores';
     protected $fillable = [
         'razonSocial',
         'nombreCompleto',
@@ -18,4 +18,5 @@ class EmpresaModel extends Model
         'telefono',
         'correo',
     ];
+    //EN ESTA TABLA NO SE RELACIONA 
 }
