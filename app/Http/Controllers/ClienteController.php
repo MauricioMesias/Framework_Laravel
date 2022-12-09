@@ -15,7 +15,20 @@ class ClienteController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        $clientes = ClienteModel::select('*')->orderBy('idCliente', 'ASC');
+        $limit=(isset($request->limit)) ? $request->limit:10;
+
+        if(isset($request->search)){
+            $clientes = $clientes->where('idCliente', 'like', '%'.$request->search.'%')
+            ->orWhere('nombre', 'like', '%'.$request->search.'%')
+            ->orWhere('apellidoPaterno', 'like', '%'.$request->search.'%')
+            ->orWhere('apellidoMaterno', 'like', '%'.$request->search.'%')
+            ->orWhere('telefono', 'like', '%'.$request->search.'%')
+            ->orWhere('correo', 'like', '%'.$request->search.'%')
+            ->orWhere('direccion', 'like', '%' .$request->search. '%');
+        }
+        $clientes = $clientes->paginate($limit)->appends($request->all());
+        return view('clientes.index', compact('clientes'));
     }
 
     /**
@@ -25,7 +38,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('clientes.create');
     }
     
 
@@ -37,7 +50,22 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new ClienteModel();
+        $cliente = $this->createUpdateCliente($request, $cliente);
+        return redirect()
+        ->route('clientes.index')
+        ->with('message', 'Su registro se ha creado');        
+    }
+
+    public function createUpdateCliente(Request $request, $cliente){
+        $cliente->nombre=$request->nombre;
+        $cliente->apellidoPaterno=$request->apellidoPaterno;
+        $cliente->apellidoMaterno=$request->apellidoMaterno;
+        $cliente->telefono=$request->telefono;
+        $cliente->correo=$request->correo;
+        $cliente->direccion=$request->direccion;
+        $cliente->save();
+        return $cliente;
     }
 
     
@@ -51,7 +79,8 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente=ClienteModel::where('idCliente', $id)->firstOrFail();
+        return view('clientes.show', compact('cliente'));
     }
 
     /**
@@ -62,7 +91,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente=ClienteModel::where('idCliente', $id)->firstOrFail();
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -74,7 +104,11 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente=ClienteModel::where('idCliente', $id)->firstOrFail();
+        $cliente=$this->createUpdateCliente($request, $cliente);
+        return redirect()
+        ->route('clientes.index')
+        ->with('message', 'Se ha actualizado el registro.');
     }
 
     /**
@@ -85,6 +119,16 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente=ClienteModel::findOrFail($id);
+        try{
+            $cliente->delete();
+            return redirect()    
+            ->route('clientes.index')
+            ->with('message', 'El registro se ha eliminado.');
+        }catch(QueryException $e){
+            return redirect()
+            ->route('clientes.index')
+            ->with('danger', 'Imposible de eliminar registro.');
+        }
     }
 }
