@@ -44,7 +44,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('proveedores', ProveedorController::class);
     Route::resource('productos', ProductoController::class);
     Route::resource('clientes', ClienteController::class);
-    Route::resource('clientes', UserController::class);
+    Route::resource('user', UserController::class);
 });
 Auth::routes();
 
