@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ClienteModel;
+use Illuminate\Database\QueryException;
 
 class ClienteController extends Controller
 {
@@ -11,7 +13,7 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
     }
@@ -25,6 +27,7 @@ class ClienteController extends Controller
     {
         //
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -36,6 +39,9 @@ class ClienteController extends Controller
     {
         //
     }
+
+    
+
 
     /**
      * Display the specified resource.
