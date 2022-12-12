@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-8">
                     <div class="form-group" >
-                        <a class="navbar-brand">Buscar</a>                
+                        <!--<a class="navbar-brand"></a> -->
                         <input class="form-control mr-sm-2" type="search" id="search" placeholder="Buscar"
                             aria-label="Search" value="{{ isset($_GET['search']) ? $_GET['search'] : '' }}">
                     </div>
@@ -67,8 +67,8 @@
                             $valor=1;
                             if($pag!=1){
                                 $valor=$comienzo+1;
-                            }    
-                        ?>    
+                            }
+                        ?>
 
 
 
@@ -87,7 +87,7 @@
                                         <a href="{{route('proveedores.edit', $proveedor->idProveedor)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                         <button type="submit" class="btn btn-danger"
                                             form="delete_{{$proveedor->idProveedor}}"
-                                            onclick="return confirm('¡Estas seguro de eliminar el registro?')">   
+                                            onclick="return confirm('¡Estas seguro de eliminar el registro?')">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                         <form action="{{route('proveedores.destroy', $proveedor->idProveedor)}}"
@@ -116,12 +116,12 @@
     $('#limit').on('change', function(){
         window.location.href="{{ route('proveedores.index')}}?limit=" + $(this).val()+ '&search=' + $('#search').val()
     })
-    
+
     $('#search').on('keyup', function(e){
         if(e.keyCode == 13){
             window.location.href="{{ route('proveedores.index')}}?limit=" +$('#limit').val()+'&search='+$(this).val()
         }
     })
     </Script>
-    
+
 @endsection
