@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\nuevavistaController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\AdminController;
 
 use Illuminate\Http\Request;
 /*
@@ -27,19 +26,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
-
-Route::get('productos', [nuevavistaController::class, 'mostrarProductos'])->middleware('verificar_usuario');
-Route::get('no_admin', [nuevavistaController::class, 'noAdmin'])->name('no_admin');
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::group(['middleware'=>['auth']], function(){
     Route::resource('proveedores', ProveedorController::class);
     Route::resource('productos', ProductoController::class);
@@ -49,3 +35,7 @@ Route::group(['middleware'=>['auth']], function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    ->name('admin.index');
