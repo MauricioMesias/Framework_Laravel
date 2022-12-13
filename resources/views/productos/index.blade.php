@@ -80,7 +80,12 @@
                                 <td>{{ $producto->descripcion }}</td>
                                 <td>{{ $producto->precio }}</td>
                                 <td>{{ $producto->expiracion }}</td>
-                                <td>{{ $producto->stock }}</td>
+                                <td>{{ $producto->stock }}
+                                    <p style="color: red">
+                                        @if ($producto->stock <=15)
+                                            ¡Queda poco Stock!
+                                        @endif</p></td>
+
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="{{route('productos.show', $producto->idProducto)}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
