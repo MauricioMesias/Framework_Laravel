@@ -69,6 +69,12 @@
             <img class="masthead-avatar mb-5" src="{{ asset('images/portfolio/stock.png') }}" alt="..." />
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">{{ config('app.name', 'Laravel') }}</h1>
+            <br>
+            <br>
+            <h1>MISION</h1>
+            <br>
+            <h5>Garantizar que cada vez que falte un producto, el proveedor pueda ponerlo a su disposición.
+                Cuando existe un control riguroso, el proveedor puede responder rápidamente a las necesidades del cliente.</h5>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -344,7 +350,7 @@
                                 <img class="img-fluid rounded mb-5"
                                     src="{{ asset('images/portfolio/unilever.png') }}" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Ahora contamoc con Unilever una marca que cuenta con mas de 149.000
+                                <p class="mb-4">Ahora contamos con Unilever una marca que cuenta con mas de 149.000
                                     personas en todo el mundo; tenemos más de 400 marcas en más de 190 países; somos una
                                     compañía global con un propósito global.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
