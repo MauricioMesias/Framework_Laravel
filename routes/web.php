@@ -26,12 +26,17 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware'=>['auth']], function(){
+Route::group(['middleware'=>['auth.admin']], function(){
     Route::resource('proveedores', ProveedorController::class);
-    Route::resource('productos', ProductoController::class);
+    //Route::resource('productos', ProductoController::class);
     Route::resource('clientes', ClienteController::class);
     Route::resource('user', UserController::class);
 });
+
+Route::group(['middleware'=>['auth']], function(){
+    Route::resource('productos', ProductoController::class);
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -24,3 +24,4 @@ class AdminAuth
         return redirect()->to('/');
     }
 }
+//CONDICION PARA QUE VERIFIQUE SI SOMOS ADMINISTRADORES
